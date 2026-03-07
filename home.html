@@ -47,10 +47,13 @@
 
     <section class="w-11/12 mx-auto pt-[60px] ">
         <div class=" bg-white flex items-center gap-3 p-6 rounded-md shadow-sm">
-            <button id="allBtn" class="btn btn-primary w-[120px]">All</button>
-            <button id="openBtn" class="btn w-[120px]">Open</button>
-            <button id="closedBtn" class="btn w-[120px]">Closed</button>
+            <button onclick="toggle('allBtn')" id="allBtn" class="btn btn-primary w-[120px]">All</button>
+            <button onclick="toggle('openBtn')" id="openBtn" class="btn w-[120px]">Open</button>
+            <button onclick="toggle('closedBtn')" id="closedBtn" class="btn w-[120px]">Closed</button>
         </div>
     </section>
+
+
+    <script src="./scripts/script.js"></script>
 </body>
 </html>
