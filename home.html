@@ -25,8 +25,8 @@
     <!-- Font Awesome -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-    <header class="flex justify-between items-center py-4 px-15">
+<body class="bg-[#F8FAFC]">
+    <header class="flex justify-between items-center py-4 px-15 bg-white">
         <div class="flex justify-center items-center gap-1">
             <img class="w-7 h-7" src="./assets/github-logo.png" alt="">
             <h2 class="font-semibold text-xl">GitHub Issues Tracker</h2>
@@ -44,5 +44,13 @@
             <button class="btn btn-primary rounded-md border-none"><i class="fa-solid fa-plus"></i> New Issue</button>
         </div>
     </header>
+
+    <section class="w-11/12 mx-auto pt-[60px] ">
+        <div class=" bg-white flex items-center gap-3 p-6 rounded-md shadow-sm">
+            <button id="allBtn" class="btn btn-primary w-[120px]">All</button>
+            <button id="openBtn" class="btn w-[120px]">Open</button>
+            <button id="closedBtn" class="btn w-[120px]">Closed</button>
+        </div>
+    </section>
 </body>
 </html>
