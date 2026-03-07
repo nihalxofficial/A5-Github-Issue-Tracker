@@ -33,14 +33,14 @@
 
     <div>
         <label class=" font-medium">Username</label>
-        <input type="text" placeholder="Enter Username" class="input rounded-md focus:outline-none focus:border-2 focus:border-blue-500 w-full p-3" />
+        <input id="username" type="text" placeholder="Enter Username" class="input rounded-md focus:outline-none focus:border-2 focus:border-blue-500 w-full p-3" />
         <p class="text-xs text-blue-600 mt-1 mb-4 font-semibold"> Default: admin </p>
 
         <label class=" font-medium">Password</label>
-        <input type="password" placeholder="Enter Password" class="input rounded-md focus:outline-none focus:border-2 focus:border-blue-500 w-full p-3" />
+        <input id="password" type="password" placeholder="Enter Password" class="input rounded-md focus:outline-none focus:border-2 focus:border-blue-500 w-full p-3" />
         <p class="text-xs text-blue-600 mt-1 font-semibold"> Default: admin123 </p>
 
-        <button class="btn btn-primary w-full mt-4 "> Sign In </button>
+        <button onclick="getInputValue()" class="btn btn-primary w-full mt-4 rounded-md"> Sign In </button>
     </div>
 
     <div class="flex items-center">
@@ -59,5 +59,7 @@
     </div>
 
     </section>
+
+    <script src="./scripts/login.js"></script>
 </body>
 </html>
