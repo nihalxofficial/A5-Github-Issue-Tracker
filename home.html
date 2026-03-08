@@ -25,7 +25,7 @@
     <!-- Font Awesome -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="bg-[#F8FAFC]">
+<body class="bg-[#F8FAFC] min-h-screen">
     <header class="flex justify-between items-center py-4 px-15 bg-white">
         <div class="flex justify-center items-center gap-1">
             <img class="w-7 h-7" src="./assets/github-logo.png" alt="">
@@ -45,12 +45,66 @@
         </div>
     </header>
 
-    <section class="w-11/12 mx-auto pt-[60px] ">
-        <div class=" bg-white flex items-center gap-3 p-6 rounded-md shadow-sm">
+    <section class="w-11/12 mx-auto py-[60px] ">
+        <div class=" bg-white flex items-center gap-3 p-6 rounded-md shadow-md">
             <button onclick="toggle('allBtn')" id="allBtn" class="btn btn-primary w-[120px]">All</button>
             <button onclick="toggle('openBtn')" id="openBtn" class="btn w-[120px]">Open</button>
             <button onclick="toggle('closedBtn')" id="closedBtn" class="btn w-[120px]">Closed</button>
         </div>
+
+
+        <main class="bg-white rounded-md shadow-md ">
+            <div class="flex justify-between items-center gap-3 p-6 border-b-2 border-gray-200  mt-4">
+                <div class="left flex justify-between items-center gap-2 ">
+                    <div class="w-[50px] h-[50px] bg-[#ECE4FF] rounded-full flex justify-center items-center">
+                        <img src="./assets/Aperture.png" alt="">
+                    </div>
+                    <div>
+                        <h2 id="totalIssues" class="font-semibold text-xl">50 Issues</h2>
+                        <p class="text-gray-500">Track and manage your project issues</p>
+                    </div>
+                </div>
+                <div class="right flex justify-between items-center gap-3">
+                    <div class="flex gap-2 items-center">
+                        <span class="bg-[#00A96E] rounded-full w-3 h-3 inline-block"></span>
+                        <span class="font-semibold">Open</span>
+                    </div>
+                    <div class="flex gap-2 items-center">
+                        <span class="bg-[#A855F7] rounded-full w-3 h-3 inline-block"></span>
+                        <span class="font-semibold">Closed</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-container p-6 bg-[#FBFBFB] grid grid-cols-4 gap-3">
+                <div class="card shadow-md rounded-md p-4 bg-white border-t-4 border-green-600">
+                    <div class="flex justify-between items-center">
+                        <img src="./assets/Open-Status.png" alt="">
+                        <div class="flex justify-center items-center w-[80px] bg-[#FEECEC] rounded-full p-1">
+                            <h4 class=" text-sm  text-red-600 font-semibold">HIGH</h4>
+                        </div>
+                    </div>
+
+                    <h2 class="font-semibold mt-3 mb-1 text-lg">Fix navigation menu on mobile devices</h2>
+                    <p class="text-sm text-gray-600">The navigation menu doesn't collapse properly on mobile devices...</p>
+                
+                    <div class="labels my-3 flex justify-start items-center gap-1.5 mt-3 ">
+                        <div class="bg-[#FEECEC] text-red-500  border-[#FECACA] border-1 rounded-full font-semibold px-3 py-1">
+                            <h4 class="text-sm"><i class="fa-solid fa-bug"></i> BUG</h4>
+                        </div>
+                        <div class="bg-[#FFF8DB] text-orange-500  border-[#FDE68A] border-1 rounded-full font-semibold px-3 py-1">
+                            <h4 class="text-sm"><i class="fa-solid fa-life-ring"></i> HELP WANTED</h4>
+                        </div>
+                    </div>
+                
+                    <hr class="text-gray-300 -mx-4 my-3">
+
+                    <p class="text-gray-500 text-sm">#1 by john_doe</p>
+                    <p class="text-gray-500 text-sm mt-3">1/15/2024</p>
+                </div>
+
+            </div>
+        </main>
     </section>
 
 
