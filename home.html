@@ -26,10 +26,10 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="bg-[#F8FAFC] min-h-screen">
-    <header class="flex justify-between items-center py-4 px-15 bg-white">
-        <div class="flex justify-center items-center gap-1">
+    <header class="flex justify-between items-center py-4 px-5 md:px-15 bg-white">
+        <div class="flex justify-start md:justify-center md:items-center flex-col md:flex-row gap-1">
             <img class="w-7 h-7" src="./assets/github-logo.png" alt="">
-            <h2 class="font-semibold text-xl">GitHub Issues Tracker</h2>
+            <h2 class="font-semibold text-sm md:text-xl">GitHub Issues Tracker</h2>
         </div>
         <div class="flex justify-center items-center gap-2">
             <label class="input outline-none rounded-md ">
@@ -76,7 +76,7 @@
                 </div>
             </div>
 
-            <div class="card-container p-6 bg-[#FBFBFB] grid grid-cols-4 gap-3">
+            <div class="card-container p-6 bg-[#FBFBFB] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                 <div class="card shadow-md rounded-md p-4 bg-white border-t-4 border-green-600">
                     <div class="flex justify-between items-center">
                         <img src="./assets/Open-Status.png" alt="">
