@@ -2,9 +2,11 @@ const allBtn = document.getElementById("allBtn");
 const openBtn = document.getElementById("openBtn");
 const closedBtn = document.getElementById("closedBtn");
 const issueContainer = document.getElementById("issueContainer");
+let issueCounter = document.getElementById("issueCounter");
 let allIssues = [];
 let openIssues = [];
 let closedIssues = [];
+
 
 
 function toggle(id){
@@ -16,14 +18,22 @@ function toggle(id){
     target.classList.add("btn-primary");
 }
 
+const counter = (arr) => {
+    issueCounter.innerText = arr.length;
+}
+
 allBtn.addEventListener("click", () => {
     displayIssues(allIssues);
+    counter(allIssues);
+    
 });
 openBtn.addEventListener("click", () => {
     displayIssues(openIssues);
+    counter(openIssues);
 });
 closedBtn.addEventListener("click", () => {
     displayIssues(closedIssues);
+    counter(closedIssues);
 });
 
 async function loadIssues(){
