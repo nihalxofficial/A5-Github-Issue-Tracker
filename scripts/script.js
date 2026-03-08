@@ -2,7 +2,8 @@ const allBtn = document.getElementById("allBtn");
 const openBtn = document.getElementById("openBtn");
 const closedBtn = document.getElementById("closedBtn");
 const issueContainer = document.getElementById("issueContainer");
-const spinner = document.getElementById("spinner")
+const spinner = document.getElementById("spinner");
+const search = document.getElementById("search");
 let issueCounter = document.getElementById("issueCounter");
 let allIssues = [];
 
@@ -112,6 +113,23 @@ const createLabelElements = (labels) => {
     }).join("");
 }
 
+search.addEventListener("keyup", (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        const searchValue = search.value;
 
+        fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
+        .then(res => res.json())
+        .then(data => {
+            const searchIssues = data.data;
+            displayIssues(searchIssues);
+            
+            search.value = ''; 
+            counter(searchIssues);
+        })
+        
+        toggle("allBtn")
+    }
+})
 
 loadIssues();
