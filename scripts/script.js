@@ -4,6 +4,7 @@ const closedBtn = document.getElementById("closedBtn");
 const issueContainer = document.getElementById("issueContainer");
 const spinner = document.getElementById("spinner");
 const search = document.getElementById("search");
+const detailsContainer = document.getElementById("detailsContainer");
 let issueCounter = document.getElementById("issueCounter");
 let allIssues = [];
 
@@ -96,21 +97,27 @@ function displayIssues(issues){
 const createLabelElements = (labels) => {
     return labels.map(el => {
 
-        let labelClass = "bg-gray-50 text-gray-500 border-gray-300"; 
+        let labelClass; 
+        let labelSign;
             if (el === "bug"){
                 labelClass =  "bg-red-50 text-red-500 border-red-300";
+                labelSign = '<i class="fa-solid fa-bug"></i>';
             }else if(el === "help wanted"){
                 labelClass = "bg-orange-50 text-orange-500 border-orange-300";
+                labelSign = '<i class="fa-solid fa-life-ring"></i>';
             }else if (el === "enhancement"){
                 labelClass = "bg-green-50 text-green-500 border-green-300";
+                labelSign = '<i class="fa-solid fa-wand-magic-sparkles"></i>';
             }else if( el === "good first issue"){
                 labelClass = "bg-blue-50 text-blue-500 border-blue-300";
+                labelSign = '<i class="fa-solid fa-star"></i>';
             }else{
                 labelClass = "bg-purple-50 text-purple-500 border-purple-300";
+                labelSign = '<i class="fa-solid fa-book"></i>';
             }
         return `
         <div class="${labelClass} border rounded-full whitespace-nowrap font-semibold px-3 py-1 capitalize">
-            <h4 class="text-xs"> <i class="fa-solid fa-life-ring"></i> ${el} </h4>
+            <h4 class="text-xs"> ${labelSign} ${el} </h4>
         </div>
         `;
     }).join("");
@@ -137,13 +144,47 @@ search.addEventListener("keyup", (event) => {
 
 loadIssues();
 
-const showDetails = (id) => {
-    console.log(id);
+const  showDetails = async (id) => {
+    // console.log(id);
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
+    const data = await res.json();
+    const details = data.data;
 
+    detailsContainer.innerHTML = `
+    <div class="modal-box p-7">
+                <h2 class="font-bold mb-1 text-xl">${details.title}</h2>
+                <div class="mt-3 mb-6">
+                    <span class=" ${details.status==="open"? "bg-green-600" : "bg-purple-600"} text-white py-1 px-2 rounded-full text-xs capitalize">${details.status}</span> &bull; <span class="text-xs">Opened by ${details.author}</span> &bull; <span class="text-xs">${details.createdAt.split("T")[0]}</span>
+                </div>
 
+                <div class="labels my-3 flex justify-start items-center gap-1.5 mt-3 ">
+                
+                    ${createLabelElements(details.labels)}
+                
+                </div>
+                <p class="text-sm text-gray-600 my-6">${details.description}</p>
+
+                <div class="flex justify-between items-center bg-[#F8FAFC] p-4 rounded-lg">
+                    <div>
+                        <p class="text-gray-600 text-sm">Assignee:</p>
+                        <h2 class="font-semibold">${details.assignee ? details.assignee: "Not Assigned"}</h2>
+                    </div>
+
+                    <div>
+                        <h2 class="text-gray-600 text-sm">Priority:</h2>
+                        <h2 class="0  ${details.priority==="high"? "bg-red-600" : details.priority==="medium" ?"bg-orange-600" : "bg-purple-600"} text-white py-1 px-3 rounded-full text-xs uppercase">${details.priority}</h2>
+                    </div>
+                </div>
+
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn btn btn-primary">Close</button>
+                    </form>
+                </div>
+            </div>
+    `;
 
     issue_modal.showModal();
     
 }
-
-showDetails()
