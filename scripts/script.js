@@ -10,7 +10,6 @@ let issueCounter = document.getElementById("issueCounter");
 let allIssues = [];
 
 
-
 function toggle(id){
     allBtn.classList.remove("btn-primary");
     openBtn.classList.remove("btn-primary");
@@ -79,7 +78,7 @@ function displayIssues(issues){
         <h2 class="font-semibold mt-3 mb-1 text-xl">${issue.title}</h2>
         <p class="text-sm text-gray-600">${issue.description}</p>
     
-        <div class="labels my-3 flex justify-start items-center gap-1.5 mt-3 ">
+        <div class="labels my-3 flex justify-start items-center gap-1.5 mt-3 sm:flex-wrap xl:flex-nowrap ">
             
             ${createLabelElements(issue.labels)}
             
@@ -117,7 +116,7 @@ const createLabelElements = (labels) => {
                 labelSign = '<i class="fa-solid fa-book"></i>';
             }
         return `
-        <div class="${labelClass} border rounded-full whitespace-nowrap font-semibold px-3 py-1 capitalize">
+        <div class="${labelClass} border rounded-full whitespace-nowrap font-semibold px-2 py-1 capitalize">
             <h4 class="text-xs"> ${labelSign} ${el} </h4>
         </div>
         `;
@@ -152,7 +151,6 @@ const searchIssues =() => {
 loadIssues();
 
 const  showDetails = async (id) => {
-    // console.log(id);
     const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
     const data = await res.json();
     const details = data.data;
@@ -161,7 +159,7 @@ const  showDetails = async (id) => {
     <div class="modal-box p-7">
                 <h2 class="font-bold mb-1 text-xl">${details.title}</h2>
                 <div class="mt-3 mb-6">
-                    <span class=" ${details.status==="open"? "bg-green-600" : "bg-purple-600"} text-white py-1 px-2 rounded-full text-xs capitalize">${details.status}</span> &bull; <span class="text-xs">Opened by ${details.author}</span> &bull; <span class="text-xs">${details.createdAt.split("T")[0]}</span>
+                    <span class=" ${details.status==="open"? "bg-green-600" : "bg-purple-600"} text-white py-1 px-2 rounded-full text-xs capitalize">${details.status}</span> &bull; <span class="text-xs">Opened by <span class= "font-bold">${details.author}</span> </span> &bull; <span class="text-xs">${details.createdAt.split("T")[0]}</span>
                 </div>
 
                 <div class="labels my-3 flex justify-start items-center gap-1.5 mt-3 ">
