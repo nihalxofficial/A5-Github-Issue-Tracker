@@ -3,12 +3,12 @@ function getInputValue(){
     const password = document.getElementById("password").value;
 
     if(userName !== "admin"){
-        alert("Invalid Username")
+        alert("Invalid Username");
+        return;
     }
     if(password !== "admin123"){
         alert("Invalid Password")
+        return;
     }
-
-    // window.location.href = "https://www.example.com";
     window.location.assign("./home.html");
 }

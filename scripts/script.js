@@ -87,7 +87,7 @@ function displayIssues(issues){
     
         <hr class="text-gray-300 -mx-4 my-3">
 
-        <p class="text-gray-500 text-sm">#1 by ${issue.author}</p>
+        <p class="text-gray-500 text-sm">#${issue.id} by ${issue.author}</p>
         <p class="text-gray-500 text-sm mt-3">${issue.createdAt.split("T")[0]}</p>
         `;
         issueContainer.appendChild(card);
