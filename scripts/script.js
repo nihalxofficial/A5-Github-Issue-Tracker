@@ -5,6 +5,7 @@ const issueContainer = document.getElementById("issueContainer");
 const spinner = document.getElementById("spinner");
 const search = document.getElementById("search");
 const detailsContainer = document.getElementById("detailsContainer");
+const newIssue = document.getElementById("newIssue");
 let issueCounter = document.getElementById("issueCounter");
 let allIssues = [];
 
@@ -124,10 +125,18 @@ const createLabelElements = (labels) => {
 }
 
 search.addEventListener("keyup", (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter'){
+        searchIssues();
         event.preventDefault();
-        const searchValue = search.value;
+    }
+})
 
+newIssue.addEventListener("click", ()=> {
+    searchIssues();
+})
+
+const searchIssues =() => {
+        const searchValue = search.value;
         fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
         .then(res => res.json())
         .then(data => {
@@ -137,10 +146,8 @@ search.addEventListener("keyup", (event) => {
             search.value = ''; 
             counter(searchIssues);
         })
-        
         toggle("allBtn")
-    }
-})
+}
 
 loadIssues();
 

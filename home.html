@@ -41,7 +41,7 @@
                 </svg>
                 <input id="search"  type="search" placeholder="Search issues..." />
             </label>
-            <button class="btn btn-primary rounded-md border-none"><i class="fa-solid fa-plus"></i> New Issue</button>
+            <button id="newIssue" class="btn btn-primary rounded-md border-none"><i class="fa-solid fa-plus"></i> New Issue</button>
         </div>
     </header>
 
@@ -81,36 +81,10 @@
             </div>
 
             <div id="issueContainer" class="card-container p-6 bg-[#FBFBFB] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                <!-- <div class="card shadow-md rounded-md p-4 bg-white border-t-4 border-green-600">
-                    <div class="flex justify-between items-center">
-                        <img src="./assets/Open-Status.png" alt="">
-                        <div class="flex justify-center items-center w-[80px] bg-[#FEECEC] rounded-full p-1">
-                            <h4 class=" text-sm  text-red-600 font-semibold">HIGH</h4>
-                        </div>
-                    </div>
-
-                    <h2 class="font-semibold mt-3 mb-1 text-lg">Fix navigation menu on mobile devices</h2>
-                    <p class="text-sm text-gray-600">The navigation menu doesn't collapse properly on mobile devices...</p>
-                
-                    <div class="labels my-3 flex justify-start items-center gap-1.5 mt-3 ">
-                        <div class="bg-[#FEECEC] text-red-500  border-[#FECACA] border-1 rounded-full font-semibold px-3 py-1">
-                            <h4 class="text-sm"><i class="fa-solid fa-bug"></i> BUG</h4>
-                        </div>
-                        <div class="bg-[#FFF8DB] text-orange-500  border-[#FDE68A] border-1 rounded-full font-semibold px-3 py-1">
-                            <h4 class="text-sm"><i class="fa-solid fa-life-ring"></i> HELP WANTED</h4>
-                        </div>
-                    </div>
-                
-                    <hr class="text-gray-300 -mx-4 my-3">
-
-                    <p class="text-gray-500 text-sm">#1 by john_doe</p>
-                    <p class="text-gray-500 text-sm mt-3">1/15/2024</p>
-                </div> -->
 
             </div>
         </main>
-        <!-- Open the modal using ID.showModal() method -->
-        <!-- <button class="btn" onclick="issue_modal.showModal()">open modal</button> -->
+
         <dialog id="issue_modal" class="modal modal-bottom sm:modal-middle">
         <div id="detailsContainer">
 
@@ -151,7 +125,6 @@
                     </form>
                 </div>
             </div>
-
 
         </div>
         </dialog>
