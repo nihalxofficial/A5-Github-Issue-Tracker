@@ -62,9 +62,12 @@ function displayIssues(issues){
     issueContainer.innerHTML = "";
     issues.forEach(issue => {
         const card = document.createElement("div");
-        card.className = `card shadow-md rounded-md p-4 bg-white border-t-4 ${issue.status === "open" ? "border-green-600": "border-purple-600"}  cursor-pointer`
+        card.onclick = () => {
+            showDetails(`${issue.id}`)
+        }
+        card.className = ` card shadow-md rounded-md p-4 bg-white border-t-4 ${issue.status === "open" ? "border-green-600": "border-purple-600"}  cursor-pointer`
         card.innerHTML = `
-        <div class="flex justify-between items-center">
+        <div  class="flex justify-between items-center">
             <img src="${issue.status === "open" ? "./assets/Open-Status.png": "./assets/Closed- Status .png"}" alt="">
             <div class="flex justify-center items-center uppercase w-[80px] ${issue.priority === "high" ? "bg-[#FEECEC]" : issue.priority === "medium" ? "bg-[#FFF6D1]" : "bg-[#EEEFF2]"}  rounded-full p-1">
                 <h4 class=" text-sm   ${issue.priority === "high" ? "text-red-600" : issue.priority === "medium" ? "text-orange-600" : "text-purple-600"} font-semibold">${issue.priority}</h4>
@@ -133,3 +136,14 @@ search.addEventListener("keyup", (event) => {
 })
 
 loadIssues();
+
+const showDetails = (id) => {
+    console.log(id);
+
+
+
+    issue_modal.showModal();
+    
+}
+
+showDetails()
